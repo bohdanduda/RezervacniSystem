@@ -1,11 +1,9 @@
 package Models;
 
 public class Wagon {
-    private int id;
-    private boolean[][] seats;
+    public boolean[][] seats;
 
-    public Wagon(int id, int seatRowCount) {
-        this.id = id;
+    public Wagon(int seatRowCount) {
         this.seats = new boolean[2][seatRowCount];
     }
 
@@ -13,19 +11,21 @@ public class Wagon {
         if (!seats[seat][row]) {
             seats[seat][row] = true;
 
-            System.out.println("Your seat has been reserved!");
+            System.out.println("Vaše místo bylo rezervováno!\n");
+            return;
         }
 
-        System.out.println("This seat is already occupied!");
+        System.out.println("Tohle místo je už obsazené!\n");
     }
 
     public void vacateSeat(int seat, int row) {
         if (seats[seat][row]) {
             seats[seat][row] = false;
 
-            System.out.println("Your seat has been vacated!");
+            System.out.println("Vaše rezervace místa byla zrušena!\n");
+            return;
         }
 
-        System.out.println("This seat is empty!");
+        System.out.println("Tohle místo je prázdé!\n");
     }
 }
